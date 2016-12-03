@@ -1,5 +1,8 @@
 var cv = require('opencv');
 
+// udp client
+const UdpClient = require('../../UdpClient');
+
 // camera properties
 var camWidth = 320;
 var camHeight = 240;
@@ -11,9 +14,12 @@ var color = [0, 255, 0];
 var cascadeFile = './data/haarcascade_smile.xml';
 
 // initialize camera
-var camera = new cv.VideoCapture(0);
+var camera = new cv.VideoCapture(2);
 camera.setWidth(camWidth);
 camera.setHeight(camHeight);
+
+// udpClient
+const udpClient = new UdpClient();
 
 
 module.exports = function (socket) {
@@ -29,11 +35,10 @@ module.exports = function (socket) {
 			im.rectangle([smile.x, smile.y], [smile.width, smile.height], color, 2);
 		  }
 		  socket.emit('frame', { buffer: im.toBuffer() });
-		},6, 16
-      );
-
-        
-      });
+      const data = smiles.length ? 1 : 0;
+      udpClient.send(data);
+		}, 6, 16);
+    });
   }, camInterval);
 };
 
@@ -51,7 +56,7 @@ module.exports = function (socket) {
           face = faces[i];
                     console.log(face);
           if(face.x > 90 && face.x < 120 && face.y > 150){
-          
+
           im.rectangle([face.x, face.y], [face.width, face.height], rectColor, rectThickness);
 			}
         }
