@@ -18,3 +18,4 @@ The applications for RisumVR system.
 
 # Quick start for eve detection
 1. Install latest pupil capture and service from [here](https://github.com/pupil-labs/pupil/releases)
+2. hmd-eyes-master contains loggers & unity plugins
