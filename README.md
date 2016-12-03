@@ -17,3 +17,4 @@ The applications for RisumVR system.
 2. Perform instructions in README.md of face-detection-node-opencv-master
 
 # Quick start for eve detection
+1. Install latest pupil capture and service from [here](https://github.com/pupil-labs/pupil/releases)
