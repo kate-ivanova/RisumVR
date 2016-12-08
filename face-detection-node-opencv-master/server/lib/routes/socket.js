@@ -14,7 +14,7 @@ var color = [0, 255, 0];
 var cascadeFile = './data/haarcascade_smile.xml';
 
 // initialize camera
-var camera = new cv.VideoCapture(2);
+var camera = new cv.VideoCapture(0);
 camera.setWidth(camWidth);
 camera.setHeight(camHeight);
 
@@ -37,7 +37,7 @@ module.exports = function (socket) {
 		  socket.emit('frame', { buffer: im.toBuffer() });
       const data = smiles.length ? 1 : 0;
       udpClient.send(data);
-		}, 6, 16);
+		}, 6, 14);
     });
   }, camInterval);
 };

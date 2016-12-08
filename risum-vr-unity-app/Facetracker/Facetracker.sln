@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{43557727-1923-FA74-5DD1-F20ADFC17A68}") = "Facetracker", "Assembly-CSharp.csproj", "{9479556A-63D6-37BF-C7A0-5D3E2CB3B0EA}"
+EndProject
+Project("{43557727-1923-FA74-5DD1-F20ADFC17A68}") = "Facetracker", "Assembly-CSharp-Editor.csproj", "{CA8456ED-8C50-EB1E-EC28-485222F6DA8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9479556A-63D6-37BF-C7A0-5D3E2CB3B0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9479556A-63D6-37BF-C7A0-5D3E2CB3B0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9479556A-63D6-37BF-C7A0-5D3E2CB3B0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9479556A-63D6-37BF-C7A0-5D3E2CB3B0EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA8456ED-8C50-EB1E-EC28-485222F6DA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8456ED-8C50-EB1E-EC28-485222F6DA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8456ED-8C50-EB1E-EC28-485222F6DA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8456ED-8C50-EB1E-EC28-485222F6DA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
