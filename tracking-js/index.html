@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Image Example</title>
+  <script src="./js/tracking.js"></script>
+  <script src="./js/mouth.js"></script>
+  <script src="./js/jquery.js"></script>
+  <style>
+    #myCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <video id='myVideo' width='400' height='300'></video>
+  <canvas id='myCanvas' width='400' height='300'></canvas>
+
+  <script>
+  navigator.getUserMedia = navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia;
+
+  if (navigator.getUserMedia) {
+   navigator.getUserMedia({ video: { width: 400, height: 300 } },
+      function(stream) {
+         var video = $('#myVideo').get(0);
+         video.srcObject = stream;
+         video.onloadedmetadata = function(e) {
+           video.play();
+         };
+      },
+      function(err) {
+         console.log("The following error occurred: " + err.name);
+      }
+   );
+  }
+
+    var objects = new tracking.ObjectTracker(['mouth']);
+    objects.on('track', function(event) {
+      if (event.data.length > 0) {
+        event.data.forEach(function(rect) {
+          const ctx = $('#myCanvas').get(0).getContext('2d');
+          ctx.clearRect(0, 0, 400, 300);
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'red';
+          ctx.stroke();
+          ctx.fillRect(rect.x,rect.y,rect.width,rect.height);
+        });
+      }
+    });
+    tracking.track('#myVideo', objects);
+  </script>
+</body>
+</html>
